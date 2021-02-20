@@ -1,0 +1,39 @@
+Cheatsheet:
+https://blog.wpscan.com/wpscan/cheatsheet/poster/2019/11/05/wpscan-cli-cheat-sheet-poster.html
+https://www.exploit-db.com/docs/english/45556-wordpress-penetration-testing-using-wpscan-and-metasploit.pdf
+
+Commands:
+
+Default scan:
+wpscan --url wordpress.example.com
+
+Scan output
+wpscan --url http://wordpress.example.com -o scan-test
+
+Detection mode scan - 3 options passive, aggressive, mixed(default)
+
+wpscan --url wordpress.example.com -o test --detection-mode aggressive
+
+Vulnerable Plugins Scan (vp (vulnerable plugins), ap (all plugins), p (plugins)
+
+wpscan --url wordpress.example.com -e vp
+
+Vulnerable Themes Scan [vt (Vulnerable themes), at (All themes), t (Themes)]
+
+wpscan --url wordpress.example.com -e vt
+
+Enumerate WordPress Users
+
+wpscan --url wordpress.example.com -e u
+
+Password Strength/Bruteforce Attack against a WordPress User
+
+wpscan --url wordpress.example.com -P password-file.txt -U admin -t 50
+
+To test for password strength for multiple users without the specific username specified.
+
+wpscan --url wordpress.example.com -P password-file.txt -t 50
+
+Run WordPress scan in undetectable mode (--random-user-agent --detection-mode passive --plugins-version-detection passive), specify the --stealthy option.
+
+wpscan --url wordpress.example.com --stealthy
